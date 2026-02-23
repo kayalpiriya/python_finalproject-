@@ -7,9 +7,8 @@ medium_priority = []
 low_priority = []
 
 
-# -----------------------------
 # Load plants from file
-# -----------------------------
+
 def load_initial_stock():
     if not os.path.exists("initial_stock.txt"):
         print("initial_stock.txt not found!")
@@ -34,9 +33,8 @@ def load_initial_stock():
             plants.append(plant)
 
 
-# -----------------------------
 # Get current day
-# -----------------------------
+
 def get_current_day():
     while True:
         try:
@@ -49,9 +47,9 @@ def get_current_day():
             print("Invalid input")
 
 
-# -----------------------------
+
 # Categorize plants
-# -----------------------------
+
 def categorize_plants(current_day):
     high_priority.clear()
     medium_priority.clear()
@@ -72,9 +70,8 @@ def categorize_plants(current_day):
             low_priority.append(plant)
 
 
-# -----------------------------
 # Show priority
-# -----------------------------
+
 def show_priority():
     print("\nHIGH PRIORITY:")
     for p in high_priority:
@@ -89,9 +86,8 @@ def show_priority():
         print(p["plant_ID"], "-", p["species"])
 
 
-# -----------------------------
 # Water single plant
-# -----------------------------
+
 def water_plant(current_day):
     plant_id = int(input("Enter plant ID: "))
 
@@ -104,9 +100,8 @@ def water_plant(current_day):
     print("Plant not found")
 
 
-# -----------------------------
 # Water by species
-# -----------------------------
+
 def water_by_species(current_day):
     species_name = input("Enter species name: ")
 
@@ -117,9 +112,8 @@ def water_by_species(current_day):
     print("All matching plants watered!")
 
 
-# -----------------------------
 # Generate daily care file
-# -----------------------------
+
 def generate_daily_care_plan():
     with open("daily_care_plan.txt", "w") as file:
         file.write("Plants Needing Water Today:\n\n")
@@ -130,9 +124,8 @@ def generate_daily_care_plan():
     print("daily_care_plan.txt created!")
 
 
-# -----------------------------
 # Save updates to file
-# -----------------------------
+
 def save_to_file():
     with open("initial_stock.txt", "w") as file:
         for plant in plants:
@@ -144,9 +137,8 @@ def save_to_file():
             )
 
 
-# -----------------------------
 # Menu
-# -----------------------------
+
 def menu():
     load_initial_stock()
 
@@ -187,8 +179,6 @@ def menu():
             print("Invalid choice")
 
 
-# -----------------------------
 # Run
-# -----------------------------
 if __name__ == "__main__":
     menu()
