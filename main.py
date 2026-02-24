@@ -77,7 +77,7 @@ def show_priority():
     for p in high_priority:
         print(p["plant_ID"], "-", p["species"])
 
-    print("\nMEDIUM PRIORITY:")
+    print("\nMEDIUM PRIORITY:\n")
     for p in medium_priority:
         print(p["plant_ID"], "-", p["species"])
 
